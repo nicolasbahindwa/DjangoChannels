@@ -1,0 +1,16 @@
+---- SEND BROADCAST MESSAGE FROM COMMAND LINE -------------
+
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from channels.layers import get_channel_layer
+>>>
+>>> channel_layer = get_channel_layer()
+>>> channel_layer.group_send('broadcast', {'type': 'websocket.message', 'text':'group brocastmessage'})
+<coroutine object RedisChannelLayer.group_send at 0x0000024C899B3C40>
+>>> from asgiref.sync import async_to_sync
+>>> async_to_sync(channel_layer.group_send)('broadcast', {'type': 'websocket.message', 'text':'group brocastmessage'})
+>>>
+
+
+
+
